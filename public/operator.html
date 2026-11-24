@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1ec">
+  <title>Sillage — Espace opérateur</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/operator.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="Sillage, accueil"><span class="mark" aria-hidden="true"></span>Sillage</a>
+    <a class="nav-link" href="/">Retour à l’assistance <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="page">
+    <div class="introduction operator-intro">
+      <div><p class="eyebrow">ÉQUIPE SUPPORT</p><h1>Espace opérateur</h1></div>
+      <button type="button" id="logout" hidden>Se déconnecter</button>
+    </div>
+    <form id="login" class="login">
+      <label for="token">Jeton opérateur</label>
+      <div class="composer">
+        <input id="token" name="token" type="password" autocomplete="off" required>
+        <button type="submit" class="primary">Ouvrir la file</button>
+      </div>
+    </form>
+    <p class="feedback" id="operator-feedback" role="status"></p>
+    <div id="inbox" class="workspace operator-workspace" hidden>
+      <aside class="resources queue" aria-labelledby="queue-title">
+        <h2 id="queue-title">Dossiers ouverts</h2>
+        <ul id="tickets" class="order-list"></ul>
+      </aside>
+      <section class="conversation" aria-labelledby="ticket-title">
+        <header class="conversation-header">
+          <div><h2 id="ticket-title">Choisissez un dossier</h2><p id="ticket-status"></p></div>
+          <button type="button" id="close-ticket" hidden>Clôturer</button>
+        </header>
+        <div id="messages" class="messages" role="log" aria-label="Conversation du dossier" tabindex="0"></div>
+        <div class="chat-controls" id="reply-controls" hidden>
+          <form id="reply" class="composer">
+            <label class="sr-only" for="response">Votre réponse</label>
+            <input id="response" placeholder="Répondre au client…" maxlength="800" autocomplete="off" required>
+            <button class="primary send" type="submit">Envoyer <span aria-hidden="true">↑</span></button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

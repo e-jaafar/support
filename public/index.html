@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1ec">
+  <title>Sillage — Assistance</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/client.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="Sillage, accueil"><span class="mark" aria-hidden="true"></span>Sillage</a>
+    <a class="nav-link" href="/operator">Espace opérateur <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="page">
+    <div class="introduction">
+      <p class="eyebrow">SERVICE CLIENT</p>
+      <h1>Comment vous aider ?</h1>
+    </div>
+
+    <div class="workspace">
+      <section class="conversation" aria-labelledby="chat-title">
+        <header class="conversation-header">
+          <span class="avatar" aria-hidden="true"><span class="mark"></span></span>
+          <div><h2 id="chat-title">Assistance Sillage</h2><p id="status">Connexion…</p></div>
+          <span class="live" id="connection"><i></i><span>Connexion</span></span>
+        </header>
+        <div id="messages" class="messages" role="log" aria-label="Conversation" tabindex="0"></div>
+        <div class="chat-controls">
+          <div id="suggestions" class="suggestions" aria-label="Questions fréquentes">
+            <button type="button" data-message="Je veux suivre ma commande">Suivre une commande</button>
+            <button type="button" data-message="Quels sont les délais de livraison ?">Délais de livraison</button>
+            <button type="button" data-message="Quelle est votre politique de retour ?">Faire un retour</button>
+          </div>
+          <form id="composer" class="composer">
+            <label class="sr-only" for="message">Votre message</label>
+            <input id="message" name="message" placeholder="Écrivez votre message…" maxlength="800" autocomplete="off" required disabled>
+            <button type="submit" class="primary send" disabled>Envoyer <span aria-hidden="true">↑</span></button>
+          </form>
+          <p class="feedback" id="feedback" role="status"></p>
+          <p class="fine-print" id="privacy">Utilisez des données fictives. Historique conservé 7 jours après le dernier échange.</p>
+        </div>
+      </section>
+
+      <aside class="resources" aria-labelledby="orders-title">
+        <div>
+          <p class="eyebrow">SUIVI</p>
+          <h2 id="orders-title">Commandes d’exemple</h2>
+          <p class="aside-copy">Sélectionnez une commande pour voir où en est son colis.</p>
+          <ul id="orders" class="order-list"></ul>
+        </div>
+        <div class="handoff">
+          <p class="eyebrow">ÉQUIPE SUPPORT</p>
+          <button type="button" id="handoff" disabled>Parler à un conseiller <span aria-hidden="true">↗</span></button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <dialog id="confirm">
+    <h2>Transmettre la conversation ?</h2>
+    <p>L’équipe support pourra lire les messages déjà échangés et vous répondre dans ce chat.</p>
+    <form method="dialog" class="dialog-actions">
+      <button value="cancel" autofocus>Annuler</button>
+      <button value="confirm" class="primary">Confirmer le partage</button>
+    </form>
+  </dialog>
+</body>
+</html>
